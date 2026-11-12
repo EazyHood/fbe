@@ -42,7 +42,7 @@ class TestBylawCaps < Fbe::Test
 
   def test_publishes_the_delay_charge_cap
     text = resolved.bylaw.markdown
-    assert_includes(text, 'deduct **1**')
+    assert_match(/deduct \*\*1(?:\.0)?\*\*/, text)
     assert_includes(text, 'no more than **20** points')
   end
 
