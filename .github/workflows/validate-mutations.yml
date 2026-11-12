@@ -1,0 +1,19 @@
+name: Detect regressions for 1731
+on:
+  push:
+    branches: [validate-1731-mutations-20261112]
+permissions:
+  contents: read
+jobs:
+  mutations:
+    runs-on: ubuntu-26.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@de492cf36cbab201753d720ce4f4e336cd688c94
+        with:
+          ruby-version: '4.0'
+          bundler-cache: true
+      - run: python3 .github/validation/mutations.py

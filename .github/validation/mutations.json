@@ -1,0 +1,1 @@
+{"source": "lib/fbe/github_graph.rb", "test": "test/fbe/test_github_graph_partial_threads.rb", "mutations": [["return thread if comments.nil?", "", 0], ["break if page.nil?", "", 0], ["break if page.nil?", "", 1], ["page['nodes'] || []", "page['nodes']", 1], ["page['pageInfo'] || {}", "page['pageInfo']", 0]]}
