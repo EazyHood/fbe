@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
-          ref: 7a07dbf89f6710248b5c9427f218f26f7622be71
+          ref: 61dba438a00871338e87bfba05b259da041108b6
           persist-credentials: false
       - uses: ruby/setup-ruby@de492cf36cbab201753d720ce4f4e336cd688c94
         with:
