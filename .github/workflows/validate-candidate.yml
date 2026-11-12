@@ -1,0 +1,27 @@
+name: Validate fbe 1744
+on:
+  push:
+    branches: [validate-1744-20261112]
+permissions:
+  contents: read
+jobs:
+  candidate:
+    runs-on: ubuntu-26.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: e5bbaa693cdde2740ab2a1fd2c48d846f653dcd6
+          persist-credentials: false
+      - uses: ruby/setup-ruby@de492cf36cbab201753d720ce4f4e336cd688c94
+        with:
+          ruby-version: '4.0'
+          bundler-cache: true
+      - run: sudo apt-get update && sudo apt-get install -y parallel
+      - name: Run the focused and complete checks
+        env:
+          RAKE_RUN: 'true'
+        run: |
+          set -eu
+          bundle exec ruby -Itest test/fbe/test_award_diagnostics.rb -- --no-cov
+          bundle exec rake
