@@ -1,0 +1,1 @@
+{"source": "lib/fbe/github_graph.rb", "test": "test/fbe/test_github_graph_factory.rb", "mutations": [["global[:github_graph] ||=", "global[:github_graph] =", 0], [".strip.downcase", ".strip", 0], ["options.github_token || ENV.fetch('GITHUB_TOKEN', nil)", "options.github_token", 0]]}
